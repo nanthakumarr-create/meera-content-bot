@@ -1,0 +1,52 @@
+{
+  "name": "meera-content-bot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Telegram content assistant for Skinstinct: scores founder notes, drafts LinkedIn posts in Meera's voice, and waits for human approval. Never publishes.",
+  "type": "module",
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:unit": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build",
+    "telegram:set-webhook": "tsx scripts/set-webhook.ts",
+    "telegram:delete-webhook": "tsx scripts/delete-webhook.ts",
+    "telegram:find-chat": "tsx scripts/find-chat.ts",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "db:seed-voice": "tsx scripts/seed-voice-skill.ts"
+  },
+  "dependencies": {
+    "@google/genai": "2.24.0",
+    "@supabase/supabase-js": "2.117.2",
+    "fast-xml-parser": "5.11.1",
+    "next": "16.3.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "server-only": "0.0.1",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.5",
+    "@types/node": "26.6.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.3.6",
+    "postgres": "3.4.9",
+    "prettier": "3.9.9",
+    "tsx": "4.23.15",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.70.1",
+    "vitest": "5.0.2"
+  }
+}

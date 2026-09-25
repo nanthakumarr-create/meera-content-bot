@@ -1,0 +1,8 @@
+.next
+node_modules
+coverage
+.vercel
+next-env.d.ts
+package-lock.json
+voice-skill.txt
+mihirr-session3-claude-code-prompt.md
