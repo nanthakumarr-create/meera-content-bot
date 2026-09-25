@@ -46,3 +46,8 @@ Thumbs.db
 # local-only brief
 mihirr-session3-claude-code-prompt.md
 
+
+# installed locally by the Vercel Supabase integration; not part of the app
+.agents/
+.claude/
+skills-lock.json
