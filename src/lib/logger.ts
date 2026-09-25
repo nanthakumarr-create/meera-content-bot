@@ -12,8 +12,9 @@ export interface Logger {
 // Telegram bot tokens look like `123456789:AA...`. Redact them wherever they appear,
 // including inside URLs such as https://api.telegram.org/bot<token>/sendMessage.
 const TELEGRAM_TOKEN_PATTERN = /\d{5,}:[A-Za-z0-9_-]{30,}/g;
-// Google API keys and JWT-shaped strings (Supabase service keys).
-const GOOGLE_KEY_PATTERN = /AIza[0-9A-Za-z_-]{30,}/g;
+// Google API keys (classic "AIza..." and newer "AQ.xxxx" formats) and JWT-shaped
+// strings (Supabase service keys).
+const GOOGLE_KEY_PATTERN = /AIza[0-9A-Za-z_-]{30,}|AQ\.[0-9A-Za-z_-]{30,}/g;
 const JWT_PATTERN = /eyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}/g;
 const SUPABASE_SECRET_PATTERN = /sb_secret_[A-Za-z0-9_-]{10,}/g;
 const SENSITIVE_KEY = /token|secret|password|api[_-]?key|authorization|service[_-]?role|cookie/i;

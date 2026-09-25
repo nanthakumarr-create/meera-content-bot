@@ -62,13 +62,17 @@ describe("logger redaction", () => {
       "calling https://api.telegram.org/bot123456789:AAEexampleexampleexampleexample1234/sendMessage",
       {
         apiKey: "AIzaexampleexampleexampleexample123",
-        nested: { note: "key AIzaSyDexampleexampleexampleexample12 leaked" },
+        nested: {
+          note: "key AIzaSyDexampleexampleexampleexample12 leaked",
+          other: "AQ.Abexampleexampleexampleexampleexample",
+        },
         TELEGRAM_BOT_TOKEN: "anything",
       },
     );
     const out = lines.join("\n");
     expect(out).not.toContain("AAEexample");
     expect(out).not.toContain("AIza");
+    expect(out).not.toContain("AQ.Ab");
     expect(out).toContain("[REDACTED_TELEGRAM_TOKEN]");
     expect(JSON.parse(lines[0]!)).toMatchObject({
       level: "info",
